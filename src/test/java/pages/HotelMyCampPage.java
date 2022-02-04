@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class HotelMyCampPage {
@@ -25,8 +26,31 @@ public class HotelMyCampPage {
     public WebElement girisYapilamadiElementi;
 
     @FindBy(xpath ="//span[text()='ListOfUsers']")
-    /////////////////////////////////////////////////
-    public WebElement listofusersYazisi;///////////////
-///////////////////////////////////////////////////////
+    public WebElement basariliGirisYaziElementi;
 
+     public void bekle(int saniye){
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+public void girisYap(){
+         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+         ilkLoginLinki.click();
+         userNameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
+         passwordBox.sendKeys(ConfigReader.getProperty(("HMCValidPassword")));
+         loginButonu.click();
+}
+    @FindBy(xpath = "//span[text()='Hotel Management']")
+    public WebElement hotelManagementLinki;
+
+    @FindBy(xpath = "//a[@href='/admin/HotelAdmin']")
+    public WebElement hotelListLinki;
+
+    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
+    public WebElement addHotelLinki;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement addHotelCodeKutusu;
 }

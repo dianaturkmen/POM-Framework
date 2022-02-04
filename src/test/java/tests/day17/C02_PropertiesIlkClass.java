@@ -24,7 +24,8 @@ public class C02_PropertiesIlkClass {
         hotelMyCampPage.loginButonu.click();
         //    Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
 
-        Assert.assertTrue(hotelMyCampPage.listofusersYazisi.isDisplayed());
+        Assert.assertTrue(hotelMyCampPage.basariliGirisYaziElementi.isDisplayed());
 
+        Driver.closeDriver();
     }
 }

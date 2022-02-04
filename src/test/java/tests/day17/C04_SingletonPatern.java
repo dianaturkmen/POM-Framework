@@ -17,9 +17,11 @@ public class C04_SingletonPatern {
             //Driver driver=new Driver();
             //Driver driver1=new Driver();
             //Driver driver2=new Driver();
-        // Songleton pattern kabul gormus bir pattern dir
-        //amac bir class"dan obje
-        ///////////
-        ////////////////
+
+        // Singleton pattern kabul gormus bir pattern'dir
+        // amac bir class'dan obje uretilmemesini saglamaktir
+        // bunun icin singleton pattern'de koruyacagim,iz class'da
+        // parametresiz bir constructor olusturur ve
+        // bu constructor'i private yapariz
     }
 }
