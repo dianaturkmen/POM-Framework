@@ -28,6 +28,30 @@ public class HotelMyCampPage {
     @FindBy(xpath ="//span[text()='ListOfUsers']")
     public WebElement basariliGirisYaziElementi;
 
+    @FindBy(xpath = "//span[text()='Hotel Management']")
+    public WebElement hotelManagementLinki;
+
+    @FindBy(xpath = "//a[@href='/admin/HotelAdmin']")
+    public WebElement hotelListLinki;
+
+    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
+    public WebElement addHotelLinki;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement addHotelCodeKutusu;
+
+    @FindBy ( xpath="//select[@id='IDGroup']")
+    public WebElement addHotelDropdown;
+
+    @FindBy(xpath = "//button[@id='btnSubmit']")
+    public WebElement addHotelSaveButonu;
+
+    @FindBy (xpath = "//div[@class='bootbox-body']")
+    public WebElement saveSuccessfullytext;
+
+    @FindBy (xpath = "//button[@class='btn btn-primary']")
+    public WebElement saveSuccesOkTusu;
+
      public void bekle(int saniye){
         try {
             Thread.sleep(saniye*1000);
@@ -42,15 +66,5 @@ public void girisYap(){
          passwordBox.sendKeys(ConfigReader.getProperty(("HMCValidPassword")));
          loginButonu.click();
 }
-    @FindBy(xpath = "//span[text()='Hotel Management']")
-    public WebElement hotelManagementLinki;
 
-    @FindBy(xpath = "//a[@href='/admin/HotelAdmin']")
-    public WebElement hotelListLinki;
-
-    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
-    public WebElement addHotelLinki;
-
-    @FindBy(xpath = "//input[@id='Code']")
-    public WebElement addHotelCodeKutusu;
 }

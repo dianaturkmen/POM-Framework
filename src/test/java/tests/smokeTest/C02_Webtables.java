@@ -9,7 +9,7 @@ import java.util.List;
 
 public class C02_Webtables {
     HotelMyCampPage hotelMyCampPage;
-        HMCWebTablePage,
+    HMCWebTablePage hmcWebTablePage;
 
     @Test
     public void loginT(){
@@ -17,10 +17,15 @@ public class C02_Webtables {
         hotelMyCampPage.girisYap();
     }
 
-    @Test
+    @Test (dependsOnMethods = "loginT")
     public void table(){
-        HMCWebTablePage
-        List<WebElement> headerDataList=
+        hmcWebTablePage=new HMCWebTablePage();
+        List<WebElement> headerDataList=hmcWebTablePage.headerBirinciSatirDatalar;
+        System.out.println("tablodaki sutun sayisi: "+ headerDataList.size());
+        System.out.println(hmcWebTablePage.tumBodyWebelementi.getText());
+
+        List<WebElement> bodyTumDataList=hmcWebTablePage.tumBodyDtalariList;
+        System.out.println("body'deki data sayisi: "+ bodyTumDataList.size());
     }
     // ● Bir class oluşturun : C02_WebTables
     //
@@ -33,16 +38,30 @@ public class C02_Webtables {
     //            ○ Password : Manager1!
     //
     //● table( ) metodu oluşturun
-    //
+
     //            ○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
     //
     //            ○ Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.
     //
-    //● printRows( ) metodu oluşturun //tr
+
+    @Test (dependsOnMethods = "loginT")
+    public void printRows(){
+        hmcWebTablePage=new HMCWebTablePage();
+        System.out.println(hmcWebTablePage.satirlarListesi.size());
+        List<WebElement> satirlarWebElementListesi=hmcWebTablePage.satirlarListesi;
+        for (WebElement each:satirlarWebElementListesi
+             ) {
+            System.out.println(each.getText());
+        }
+
+     //● printRows( ) metodu oluşturun //tr
     //
     //            ○ table body’sinde bulunan toplam satir(row) sayısını bulun.
     //
     //            ○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
     //
     //            ○ 4.satirdaki(row) elementleri konsolda yazdırın.
+        System.out.println("4.satir:" +satirlarWebElementListesi.get(3).getText());
+    }
+
 }
